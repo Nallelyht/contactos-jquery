@@ -61,7 +61,7 @@ var agregarContacto = function (e){
 			$addButton.attr("disabled", true);
 		}
 	};
-
+/*funcion para eliminar contactos*/
 var eliminarContacto= function () {
 		$(this).parent().remove();
 		contadorContactos--;
