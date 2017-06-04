@@ -1,4 +1,4 @@
-var contador = 0;
+var contadorContactos = 0;
 var cargarPagina = function(){
 	// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
 	$('.modal').modal();
@@ -33,8 +33,9 @@ var agregarContacto = function (e){
 	$("#icon_prefix").val("");
 	$("#icon_telephone").val("");
 	contador++;
-	$("#number-contacts").text(contador);
+	$("#number-contacts").text(contadorContactos);
 };
+
 
 
 $(document).ready(cargarPagina);
