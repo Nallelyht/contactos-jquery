@@ -4,6 +4,8 @@ var cargarPagina = function(){
 	$('.modal').modal();
 	$(".button-collapse").sideNav();
 	$("#form-contact").submit(agregarContacto);
+	$("#icon_prefix").keyup(validarContacto);
+	$("#icon_telephone").keyup(validarContacto);
 	
 };
 var agregarContacto = function (e){
@@ -24,17 +26,36 @@ var agregarContacto = function (e){
 	$nuevoNombre.text($nombreContacto);
 	$nuevoNumero.text($telefonoContacto);
 	$iconoEliminar.text("delete");
+	
+	$eliminarContacto.click(eliminarContacto);
 	$eliminarContacto.append($iconoEliminar);
 	$nuevoContacto.append($nuevoNombre);
 	$nuevoContacto.append($eliminarContacto);
 	$nuevoContacto.append($nuevoNumero);
-
+	
+	
 	$listaContactos.prepend($nuevoContacto);
 	$("#icon_prefix").val("");
 	$("#icon_telephone").val("");
-	contador++;
+	contadorContactos++;
 	$("#number-contacts").text(contadorContactos);
 };
+
+	var validarContacto = function () {
+		var $addButton = $("#add-contact");
+	
+		if($(this).val().trim().length > 0) {
+			$addButton.removeAttr("disabled");
+		} else {
+			$addButton.attr("disabled", true);
+		}
+	};
+
+var eliminarContacto= function () {
+		$(this).parent().remove();
+		contadorContactos--;
+		$("#number-contacts").text(contadorContactos);
+	};
 
 
 
